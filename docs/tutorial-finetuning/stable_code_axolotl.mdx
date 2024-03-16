@@ -6,6 +6,23 @@ title: Stable Code Finetuning with Axolotl
 
 
 
+# Stable Code Finetuning with Axolotl
+
+Axolotl is a popular library for finetuning models. In this tutorial, we
+will use Axolotl to finetune our Stable Code 3B model on FORTRAN code to
+show you how to create a custom code completion model on a new
+programming language.
+
+This tutorial is based on the wonderful notebooks from Maxime Labonne’s
+[llm course](https://github.com/mlabonne/llm-course/tree/main)
+
+<figure>
+<a
+href="https://colab.research.google.com/github/Stability-AI/stable-code-docs/blob/main/docs/tutorial-finetuning/stable_code_axolotl.ipynb"><img
+src="https://colab.research.google.com/assets/colab-badge.svg"
+alt="Open In Colab" /></a>
+<figcaption>Open In Colab</figcaption>
+</figure>
 
 ```python
 import torch
@@ -13,6 +30,8 @@ import torch
 assert (torch.cuda.is_available()==True)
 ```
 
+Let’s get the environment set up first. We will go ahead and install the
+necessary packages.
 
 ```python
 !pip install torch=="2.1.2"
@@ -21,24 +40,32 @@ assert (torch.cuda.is_available()==True)
 !pip install deepspeed=="0.13.1"
 ```
 
+Axolotl relies on a config file written in YAML to specify the model and
+the dataset and how to train the model. We will create a config file for
+our finetuning task to finetune the Stable Code 3B model on FORTRAN code
+using QLoRA. The dataset we are picking is from
+`codeparrot/github-code-clean` dataset which is a collection of code
+scraped from GitHub. Specifically, we will be utilizing the FORTRAN MIT
+licensed code.
 
 ```python
 import yaml
 
 # Your YAML string
 yaml_string = """
-base_model: TinyLlama/TinyLlama-1.1B-intermediate-step-1431k-3T
-model_type: LlamaForCausalLM
-tokenizer_type: LlamaTokenizer
-is_llama_derived_model: true
+base_model: stabilityai/stable-code-3b
+model_type: AutoModelForCausalLM
+tokenizer_type: AutoTokenizer
 
 load_in_8bit: false
 load_in_4bit: true
 strict: false
 
 datasets:
-  - path: mhenrichsen/alpaca_2k_test
-    type: alpaca
+  - path: codeparrot/github-code-clean
+    name: FORTRAN-mit
+    type: completion
+    field: code
 dataset_prepared_path:
 val_set_size: 0.05
 output_dir: ./qlora-out
@@ -110,12 +137,16 @@ with open(file_path, 'w') as file:
     yaml.dump(yaml_dict, file)
 ```
 
+Next, we can launch the run, which should take about XX if you are
+running this in a Colab environment with a T4 GPU:
 
 ```python
 # Buy using the ! the comand will be executed as a bash command
 !accelerate launch -m axolotl.cli.train /content/test_axolotl.yaml
 ```
 
+Once the model has been finetuned, we can run it in a gradio
+environment:
 
 ```python
 # Buy using the ! the comand will be executed as a bash command
