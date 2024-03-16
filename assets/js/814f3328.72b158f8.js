@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkstable_code=self.webpackChunkstable_code||[]).push([[472],{5513:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Long Blog Post","permalink":"/blog/long-blog-post","unlisted":false}]}')}}]);
