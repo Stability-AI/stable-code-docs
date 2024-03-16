@@ -20,7 +20,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/overview">
-            Docusaurus Tutorial - 5min ⏱️
+            Stable Code Tutorial
           </Link>
         </div>
       </div>
@@ -33,11 +33,8 @@ export default function Home() {
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description='A site to demonstrate how to use Stable Code.'>
       <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
     </Layout>
   );
 }
