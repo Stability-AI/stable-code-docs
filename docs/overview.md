@@ -4,44 +4,12 @@ sidebar_position: 1
 
 # Stable Code Overview
 
-Let's discover **Docusaurus in less than 5 minutes**.
+We are Code.AI, Stability AI's research team focused specifically on how to utilize AI to help assist developers be more productive. We currently have the following models available for developers to use directing or build ontop of to create innovative applications:
+- [Stable Code](https://huggingface.co/stabilityai/stable-code-3b): A base model trained on terabytes of coding, web, and general public web data. This model is best suited to be further finetuned or used for the task of code completion.
+- [Stable Code Instruct](https://huggingface.co/stabilityai/stable-code-instruct-3b): A finetuned model for the task of instruction following, question and answering, and general chatting tasks with a focus on software engineering. This model is best suited for low code/no code (e.g., build me a website with X, Y, and Z features), explaining error messages, and other conversational task.
 
-## Getting Started
+To help you get started as fast as possible using and building with Stable Code, we've developed a number of tutorials to showcase standard usecases such as finetuning Stable Code for a new programming language or using Stable Code Instruct to allow developers to ask questions about a software repository. Checkout the various tutorials from the sidebar and we can't wait to see what you build!
 
-Get started by **creating a new site**.
+# Get Help
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
-
-### What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/overview.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+If you are interested in using our models for your business, please visit our [memberships page](https://stability.ai/membership) or [contact us directly](https://stability.ai/enterprise). 
