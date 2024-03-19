@@ -8,6 +8,8 @@ title: Repositories QA
 
 # Repositories QA
 
+[![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Stability-AI/stable-code-docs/blob/main/docs/tutorial-usage/repository_qa.ipynb)
+
 In this tutorial, we will show you how you can create a simple program
 using Stable Code Instruct and Langchain to ask questions about a
 repository.
@@ -75,15 +77,31 @@ retriever = db.as_retriever(
 )
 ```
 
-Finally, we will use Ollama to serve our model and answer questions
-about the repository.
+We will use Ollama to serve our model and answer questions about the
+repository. Therefore, we need to install it. You can install it by
+running the following if you are on linux or using colab:
+
+```python
+!curl -fsSL https://ollama.com/install.sh | sh
+```
+
+Next, we need to setup the ollama server to run in the background:
+
+```python
+!ollama serve
+```
+
+Finally, we can chat with our repository.
+
+**Note:** The first time running this will take a while since you need
+to download the necessary model weights to run the model.
 
 ```python
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationSummaryMemory
 from langchain_community.chat_models import ChatOllama
 
-llm = ChatOllama(model="stable-code:zephyr")
+llm = ChatOllama(model="stable-code:instruct")
 memory = ConversationSummaryMemory(
     llm=llm, memory_key="chat_history", return_messages=True
 )
