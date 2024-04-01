@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkstable_code=self.webpackChunkstable_code||[]).push([[782],{7425:e=>{e.exports=JSON.parse('[{"label":"hello","permalink":"/stable-code-docs/blog/tags/hello","count":1},{"label":"docusaurus","permalink":"/stable-code-docs/blog/tags/docusaurus","count":1}]')}}]);

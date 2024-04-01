@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>Stable Code Docs Blog</title>
-        <link>https://stable-code-docs.github.io/blog</link>
+        <link>https://stability-ai.github.io/stable-code-docs/blog</link>
         <description>Stable Code Docs Blog</description>
         <lastBuildDate>Wed, 29 May 2019 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
@@ -10,8 +10,8 @@
         <language>en</language>
         <item>
             <title><![CDATA[Long Blog Post]]></title>
-            <link>https://stable-code-docs.github.io/blog/long-blog-post</link>
-            <guid>https://stable-code-docs.github.io/blog/long-blog-post</guid>
+            <link>https://stability-ai.github.io/stable-code-docs/blog/long-blog-post</link>
+            <guid>https://stability-ai.github.io/stable-code-docs/blog/long-blog-post</guid>
             <pubDate>Wed, 29 May 2019 00:00:00 GMT</pubDate>
             <description><![CDATA[This is the summary of a very long blog post,]]></description>
             <content:encoded><![CDATA[<p>This is the summary of a very long blog post,</p>
