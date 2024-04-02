@@ -48,8 +48,9 @@ from langchain_text_splitters import Language, RecursiveCharacterTextSplitter
 
 loader = GenericLoader.from_filesystem(
     repo_path,
-    glob="*",
+    glob="**/*",
     suffixes=[".py"],
+    exclude=["**/non-utf8-encoding.py"],
     parser=LanguageParser(),
 )
 docs = loader.load()
@@ -57,7 +58,8 @@ docs = loader.load()
 python_splitter = RecursiveCharacterTextSplitter.from_language(
     language=Language.PYTHON, chunk_size=2000, chunk_overlap=200 # Tune these parameters to your liking
 )
-texts = python_splitter.split_documents(docs)
+n = 1_000
+texts = python_splitter.split_documents(docs)[:n]
 len(texts)
 ```
 
@@ -83,12 +85,16 @@ running the following if you are on linux or using colab:
 
 ```python
 !curl -fsSL https://ollama.com/install.sh | sh
+!command -v systemctl >/dev/null && sudo systemctl stop ollama
 ```
 
 Next, we need to setup the ollama server to run in the background:
 
 ```python
-!ollama serve
+import subprocess
+
+# Start a subprocess in the background
+process = subprocess.Popen(["ollama", "serve"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 ```
 
 Finally, we can chat with our repository.
@@ -109,5 +115,5 @@ qa = ConversationalRetrievalChain.from_llm(llm, retriever=retriever, memory=memo
 
 question = "How can I initialize a ReAct agent?"
 result = qa(question)
-result["answer"]
+print(result["answer"])
 ```
