@@ -56,12 +56,12 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/code-ai-social.png',
+      image: 'img/stability-ai-social.png',
       navbar: {
-        title: 'Code.AI',
+        title: 'Stable Code',
         logo: {
-          alt: 'Code.AI Logo',
-          src: 'img/logo.svg',
+          alt: 'Stability AI Logo',
+          src: 'img/stability-ai-logo.png',
         },
         items: [
           {
